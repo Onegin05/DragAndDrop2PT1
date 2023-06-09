@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class NomesanasVieta : MonoBehaviour, 
 	IDropHandler{
+	public uzvara U;
 	private float vietasZRot, velkObjZRot, rotacijasStarpiba;
 	private Vector2 vietasIzm, velkObjIzm;
 	private float xIzmStarpiba, yIzmStarpiba;
@@ -55,58 +57,77 @@ public class NomesanasVieta : MonoBehaviour,
 
 					eventData.pointerDrag.GetComponent<RectTransform>().localScale =
 						GetComponent<RectTransform>().localScale;
+					U.MasinaSavaVieta++;
+					if (U.MasinaSavaVieta == 12) {
+						uzvara uzvRezultats = FindObjectOfType<uzvara>();
+						uzvRezultats.rezultats();
 
+
+					}
 					switch (eventData.pointerDrag.tag) {
-						case "atkritumi":
-							objektuSkripts.skanasAvots.PlayOneShot(
-								objektuSkripts.skanasKoAtskanot[1]);
+					case "atkritumi":
+						objektuSkripts.skanasAvots.PlayOneShot (
+							objektuSkripts.skanasKoAtskanot [1]);
+						
 							break;
 
 						case "atrie":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[2]);
+						
 							break;
 
 						case "buss":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[3]);
+						
+
 							break;
 					
 					    case "b2":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[4]);
+						
 							break;
 					    case "camentaM":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[5]);
+						
 							break;
 						case "e46":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[6]);
+					
 							break;
 						case "e61":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[7]);
+						
 							break;
 						case "eskavators":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[8]);
+						
 							break;
 						case "policija":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[9]);
+						
 							break;
 						case "traktorsDzeltenais":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[10]);
+						
 							break;
 						case "traktorsZilais":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[11]);
+						
 							break;
 						case "ugunsDz":
 							objektuSkripts.skanasAvots.PlayOneShot(
 								objektuSkripts.skanasKoAtskanot[12]);
+						
 							break;
 
 
@@ -123,9 +144,11 @@ public class NomesanasVieta : MonoBehaviour,
 							break;
 
 					}
+
+
 				}
 
-				//Ja tagi nesakrīt, tātad nepareizajā vietā
+
 			} else	{
 				objektuSkripts.vaiIstajaVieta = false;
 				objektuSkripts.skanasAvots.PlayOneShot(
