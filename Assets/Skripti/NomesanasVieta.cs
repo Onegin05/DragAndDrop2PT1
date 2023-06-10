@@ -6,17 +6,17 @@ using UnityEngine.EventSystems;
 
 public class NomesanasVieta : MonoBehaviour, 
 	IDropHandler{
-	public uzvara U;
-	private float vietasZRot, velkObjZRot, rotacijasStarpiba;
+	public uzvara U; // Deklarē publisko mainīgo "U" no klases "uzvara".
+	private float vietasZRot, velkObjZRot, rotacijasStarpiba; 
 	private Vector2 vietasIzm, velkObjIzm;
 	private float xIzmStarpiba, yIzmStarpiba;
 	public Objekti objektuSkripts;
 
-    public void OnDrop(PointerEventData eventData)
+	public void OnDrop(PointerEventData eventData) //  Definē metodi, kas tiek izsaukta, kad objekts tiek nomests uz šīs vietas.
     {
-		if (eventData.pointerDrag != null)
+		if (eventData.pointerDrag != null) // Pārbauda, vai pārnēsājamais objekts ir definēts.
 		{
-			if (eventData.pointerDrag.tag.Equals(tag))
+			if (eventData.pointerDrag.tag.Equals(tag)) // -Pārbauda, vai pārnēsājamā objekta atzīme (tag) atbilst šīs vietas atzīmei (tag).
 			{
 				vietasZRot =
 				eventData.pointerDrag.
@@ -26,7 +26,7 @@ public class NomesanasVieta : MonoBehaviour,
 				GetComponent<RectTransform>().transform.eulerAngles.z;
 
 				rotacijasStarpiba =
-				Mathf.Abs(vietasZRot - velkObjZRot);
+					Mathf.Abs(vietasZRot - velkObjZRot); // Aprēķina rotācijas starpību starp nomestā objekta un vietas rotācijām.
 
 				vietasIzm =
 				eventData.pointerDrag.
@@ -45,7 +45,7 @@ public class NomesanasVieta : MonoBehaviour,
 
 				if ((rotacijasStarpiba <= 6 ||
 					(rotacijasStarpiba >= 354 && rotacijasStarpiba <= 360))
-					&& (xIzmStarpiba <= 0.1 && yIzmStarpiba <= 0.1))
+					&& (xIzmStarpiba <= 0.1 && yIzmStarpiba <= 0.1)) //  - Pārbauda, vai rotācijas starpība un izmēru starpības ir mazākas vai vienādas ar noteiktām vērtībām, kas norāda pareizu nomesto objektu pozīciju.
 				{
 					Debug.Log("Nomests pareizajā vietā!");
                     objektuSkripts.vaiIstajaVieta = true;
@@ -59,7 +59,7 @@ public class NomesanasVieta : MonoBehaviour,
 						GetComponent<RectTransform>().localScale;
 					U.MasinaSavaVieta++;
 					if (U.MasinaSavaVieta == 12) {
-						uzvara uzvRezultats = FindObjectOfType<uzvara>();
+						uzvara uzvRezultats = FindObjectOfType<uzvara>(); //  Izsauc "rezultats" metodi no "uzvara" objekta.
 						uzvRezultats.rezultats();
 
 

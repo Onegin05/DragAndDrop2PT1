@@ -48,14 +48,14 @@ public class Objekti : MonoBehaviour {
 	public AudioClip[] skanasKoAtskanot;
 
 	[HideInInspector]
-	public bool vaiIstajaVieta = false;
+	public bool vaiIstajaVieta = false; // Deklarē publisko bool mainīgo "vaiIstajaVieta" ar sākotnējo vērtību "false".
 
-	public GameObject pedejaisVilktais = null;
+	public GameObject pedejaisVilktais = null; // Deklarē publisko GameObject mainīgo "pedejaisVilktais" ar vērtību "null".
 
 
 	void Start() {
 		atkrMKoord =
-        atkritumuMasina.GetComponent<RectTransform>().localPosition;
+			atkritumuMasina.GetComponent<RectTransform>().localPosition; //- Iegūst "atkritumuMasina" objekta RectTransform komponentes vietu (localPosition) un saglabā to "atkrMKoord" mainīgajā.
         
 		atrPKoord =
         atraPalidziba.GetComponent<RectTransform>().localPosition;

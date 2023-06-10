@@ -32,13 +32,13 @@ public class DragDropSkripts : MonoBehaviour,
     }
 
     //Turpināsim no šīs vietas
-    public void OnDrag(PointerEventData eventData)
+	public void OnDrag(PointerEventData eventData) //šī rindiņa definē metodi, kas tiek izsaukta, kamēr objekts tiek vilkts.
     {
         velkObjRectTransf.anchoredPosition +=
         eventData.delta / objektuSkripts.kanva.scaleFactor; 
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+	public void OnEndDrag(PointerEventData eventData)// šī rindiņa definē metodi, kas tiek izsaukta, kad objekts tiek nomests pēc vilkšanas.
     {
         objektuSkripts.pedejaisVilktais =
              eventData.pointerDrag;
@@ -54,7 +54,7 @@ public class DragDropSkripts : MonoBehaviour,
         objektuSkripts.vaiIstajaVieta = false;
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+	public void OnPointerDown(PointerEventData eventData) //šī rindiņa definē metodi, kas tiek izsaukta, kad uz objekta tiek noklikšķināts ar peles pogu.
     {
         
     }
